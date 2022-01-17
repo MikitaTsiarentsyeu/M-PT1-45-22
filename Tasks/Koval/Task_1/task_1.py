@@ -20,4 +20,4 @@ term_in_month = term * 12
 k = decimal.Decimal(percent) / decimal.Decimal(12)
 
 result = deposit * (1 + k)**term_in_month
-print (round(result,2))
+print (round(result,2) + " BYN")
