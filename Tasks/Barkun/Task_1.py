@@ -19,11 +19,14 @@
 # L = 12 - при ежемесячной капитализации 
 # T – срок вклада в единицах капитализации
 
-D = 20000
-n = 15
-L = 12
-T = L*5
+from decimal import Decimal
 
-S = D * (1 + n/100/L)**T
+init_depo = 20000
+interest_rate = 15
+num_capital_years = 12
+years = 5
+total_term = num_capital_years * years
 
-print ("Общая сумма по счету в конце измерения:  ", round (S, 2)," BYN")
+final_depo = Decimal(init_depo * (1 + interest_rate/100/num_capital_years)**total_term)
+
+print ("Total deposit amount at the end of the period:  ", final_depo.quantize(Decimal('1.00'))," BYN")
