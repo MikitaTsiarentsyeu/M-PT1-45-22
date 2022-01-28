@@ -131,8 +131,8 @@ mix = {
     4 : (min_in_without_form, hour_in_true_form)   # min >= 45 без min такого-то
 }
 
-answer = int(input('"1" - write your time in format hh:mm;\n"2" - see current time. '))
-if answer == 1:
+answer = input('"1" - write your time in format hh:mm;\n"2" - see current time. ')
+if answer.replace(' ', '') == '1':
     # User write time
     user_time = input('Input time in next format(hh:mm): ')
     hour, min = user_time.replace(' ', '').split(':')
@@ -147,15 +147,15 @@ else:
 if min == 0:
     hour_str = 'час' if hour == 1 else 'часа' if 1<hour<5 else 'часов' # True form
     print (f'{mix[1][hour]} {hour_str} ровно')
-elif (min < 30) or (min > 30 and min < 45):
+elif min == 30:
+    print (f'Половина {mix[3][hour%12 + 1]}')
+elif min < 45:
     temp_min = min # help for some situation
     if min > 20:
         temp_min = min%10
     min_str = 'минута' if temp_min == 1 else 'минуты' if 1<temp_min<5 else 'минут' # True form
     print (f'{mix[2][0][min]} {min_str} {mix[2][1][hour%12 + 1]}')
-elif min == 30:
-    print (f'Половина {mix[3][hour%12 + 1]}')
-elif min >= 45:
+else:
     min_str = 'минут' if min != 59 else 'минуты'
     temp_hour = 100 if hour == 12 or hour == 0 else hour%12 + 1
     print (f'Без {mix[4][0][min]} {min_str} {mix[4][1][temp_hour]}')
