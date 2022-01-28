@@ -131,7 +131,7 @@ mix = {
     4 : (min_in_without_form, hour_in_true_form)   # min >= 45 без min такого-то
 }
 
-answer = input('"1" - write your time in format hh:mm;\n"2" - see current time. ')
+answer = input('"1" - write your time in format hh:mm;\n"Something else" - see current time. ')
 if answer.replace(' ', '') == '1':
     # User write time
     user_time = input('Input time in next format(hh:mm): ')
