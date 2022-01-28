@@ -19,7 +19,6 @@
 #       РЕШЕНИЕ
 
 from datetime import datetime
-from tkinter import N
 
 print ("\n\nПривет человек!")
 
