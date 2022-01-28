@@ -19,6 +19,7 @@
 #       РЕШЕНИЕ
 
 from datetime import datetime
+from tkinter import N
 
 print ("\n\nПривет человек!")
 
@@ -112,14 +113,14 @@ if (entered_time_hours_hh == 0 or entered_time_hours_hh  >= 5) and (entered_time
 
 #           часа ровно
 
-elif entered_time_hours_hh >= 2 and entered_time_hours_hh <= 4:
+elif 2 <= entered_time_hours_hh <= 4:
     text_hour = dict_time_hh [entered_time_hours_hh]
     text_hour_text = dict_time_hh_text [2]
     text_hour_text_evenly = dict_time_hh_text [3]
 
 #           час ровно
 
-elif entered_time_hours_hh == 1:
+else: #entered_time_hours_hh == 1
     text_hour = dict_time_hh [entered_time_hours_hh]
     text_hour_text = dict_time_hh_text [1]
     text_hour_text_evenly = dict_time_hh_text [3]
@@ -135,19 +136,14 @@ if (entered_time_min_mm == 1 or entered_time_min_mm == 21) or (entered_time_min_
 
     #       минуты
 
-elif (entered_time_min_mm >= 2 and entered_time_min_mm <= 5) or (
-    entered_time_min_mm >= 22 and entered_time_min_mm <= 24) or (
-    entered_time_min_mm >= 32 and entered_time_min_mm <= 34) or (
-    entered_time_min_mm >= 42 and entered_time_min_mm <= 44):
+elif 2 <= entered_time_min_mm <= 5 or 22 <= entered_time_min_mm <= 24 or 32 <= entered_time_min_mm <= 34 or 42 <= entered_time_min_mm <= 44:
     text_min = dict_time_mm [entered_time_min_mm]
     text_min_text = dict_time_mm_text [2]
     text_min_text_evenly = dict_time_hh[entered_time_hours_hh + 13]
 
 #           минут
 
-elif (entered_time_min_mm >= 6 and entered_time_min_mm <=20) or (
-    entered_time_min_mm >= 25 and entered_time_min_mm <= 29) or (
-    entered_time_min_mm >= 35 and entered_time_min_mm <= 40):
+elif 6 <= entered_time_min_mm <=20 or 25 <= entered_time_min_mm <= 29 or 35 <= entered_time_min_mm <= 40:
     text_min = dict_time_mm [entered_time_min_mm]
     text_min_text = dict_time_mm_text [3]
     text_min_text_evenly = dict_time_hh [entered_time_hours_hh + 13]
@@ -161,7 +157,7 @@ elif entered_time_min_mm == 30:
 
 #           Без .... минут
 
-elif entered_time_min_mm >= 45 and entered_time_min_mm <= 58 and entered_time_hours_hh != 0: 
+elif 45 <= entered_time_min_mm <= 58 and entered_time_hours_hh != 0: 
     text_min = dict_time_mm [entered_time_min_mm]
     text_min_text = dict_time_mm_text [3]
     text_min_text_evenly = dict_time_hh [entered_time_hours_hh + 1]
@@ -182,7 +178,7 @@ elif entered_time_min_mm == 59 and  entered_time_hours_hh == 0:
 
 #           Без ... минут час
 
-elif entered_time_min_mm >= 45 and entered_time_min_mm <= 58 and  entered_time_hours_hh == 0:  
+elif 45 <= entered_time_min_mm <= 58 and  entered_time_hours_hh == 0:
     text_min = dict_time_mm [entered_time_min_mm]
     text_min_text = dict_time_mm_text [3]
     text_min_text_evenly =  dict_time_hh [111]
@@ -200,3 +196,5 @@ elif entered_time_min_mm >=45: #and entered_time_min_mm <= 59:
 
 else: 
     print ("\n", text_min.capitalize(), text_min_text, text_min_text_evenly)
+
+print ('\nВыполнение программы закончено!\n\nСпасибо\n')
