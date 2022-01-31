@@ -66,4 +66,4 @@ elif (choice == '2'):
     elif 45 <= mm_2 < 60:
         print(f'без {minutes_2[mm_2]} {hours_2[hh_2%12+1]}')
 else:
-    print('smth wrong')
+    print('smth wrong ')
