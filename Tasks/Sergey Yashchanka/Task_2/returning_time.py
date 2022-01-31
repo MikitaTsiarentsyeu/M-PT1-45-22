@@ -37,14 +37,24 @@ answer_user = input(
 )
 
 # check enter of user!! if enter is not correct, user get present time!
-try:
-    if 0 < int(answer_user[:answer_user.find(":")]) < 25 and -1 < int(
-            answer_user[answer_user.find(":") + 1:]) < 60:
-        got_hour = int(answer_user[:answer_user.find(":")]) % 12
-        got_min = int(answer_user[answer_user.find(":") + 1:])
-except ValueError:
-    got_hour = got_time.hour % 12
-    got_min = got_time.minute
+flag = True
+while flag:
+    try:
+        if 0 < int(answer_user[:answer_user.find(":")]) < 25 and -1 < int(
+                answer_user[answer_user.find(":") + 1:]) < 60:
+            flag = False
+            got_hour = int(answer_user[:answer_user.find(":")]) % 12
+            got_min = int(answer_user[answer_user.find(":") + 1:])
+
+    except Exception:
+        if answer_user == "Y":
+            got_hour = got_time.hour % 12
+            got_min = got_time.minute
+            break
+        print(
+            "введеные вами данные не верны ! пожалуйста попробуйте еще раз! либо введите  'Y'"
+            " для получения текущего времени")
+        answer_user = input(" | ")
 
 exactly = "ровно"
 half = "половина"
@@ -115,3 +125,4 @@ elif 30 < got_min < 45:
 # min >= 45 без min такого-то
 else:
     print(f"без {dict_minutes[60 - got_min][1]} {dict_hours[got_hour + 1][0]}")
+
