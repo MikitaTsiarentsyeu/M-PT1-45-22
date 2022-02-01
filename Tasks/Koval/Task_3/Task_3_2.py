@@ -11,42 +11,51 @@
 # 'the' встречается 6 раза
 # 'and' встречается 5 раза
 
-s = input('Input your sentence here: ').lower() # do all symbol to lower case
-count_output_word = int(input ('How many word you want see? '))
+user_sentence = input('Input your sentence here: ').lower() # do all symbol to lower case
+while True:
+    count_output_word = input ('How many word you want see? ')
+    count_output_word = count_output_word.replace(' ', '')
+    if not count_output_word.isdigit():
+        print ('Please input correct digit')
+        continue
+    count_output_word = int(count_output_word)
 
-# delete unwanted symbol
-unwanted_symbol = [',','.','!','?','(',')']
-for i in unwanted_symbol:
-    s = s.replace(i,'')
-s = s.split(' ')
+    # delete unwanted symbol
+    unwanted_symbol = [',','.','!','?','(',')',':', ';']
+    for i in unwanted_symbol:
+        user_sentence = user_sentence.replace(i,'')
+    user_sentence = user_sentence.split(' ')
 
-d = {}
+    d = {}
 
-# init key in dictionary
-for c in s:
-    d[c] = 0 
-# count the number of word
-for c in s: 
-    d[c] += 1 
+    # Make count of word
+    for c in user_sentence:
+        if d.get(c, '') == '':
+            d[c] = 1
+        else:
+            d[c] += 1
+       
+    # fix out index
+    if len(d.keys()) < count_output_word:
+        print ('Incorrect count!')
+        continue
+    break
 
-# fix out index
-if len(d.keys()) < count_output_word:
-    print ('Incorrect count!')
-else:
-    l = sorted(d.items()) # sort to alphabet 
+l = sorted(d.items()) # sort by alphabet 
 
-    # you sort write on our lesson <3
-    for i in range(len(l)):
-        m = i
-        j = i + 1
-        while j < len(l):
-            if l[j][1] > l[m][1]: 
-                m = j
-            j += 1
-        l[i], l[m] = l[m], l[i]
-    
-    # Output
-    j = 0
-    for i in range(count_output_word):
-        print (f"'{l[j][0]}' встречается {l[j][1]} раза")
+# you sort write on our lesson <3
+# make correct order by value
+for i in range(len(l)):
+    m = i
+    j = i + 1
+    while j < len(l):
+        if l[j][1] > l[m][1]: 
+            m = j
         j += 1
+    l[i], l[m] = l[m], l[i]
+
+# Output
+j = 0
+for i in range(count_output_word):
+    print (f"'{l[j][0]}' встречается {l[j][1]} раза")
+    j += 1
