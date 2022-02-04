@@ -24,7 +24,7 @@
 text = input("please input your text | ")
 elements = int(input("please input amount of elements | "))
 
-sings = "[](){}-+=!?@#$%'\,|./^*:;'_1234567890"  # characters to be removed from the text
+sings = r"[](){}-+=!?@#$%'\,|./^*:;'_1234567890"  # characters to be removed from the text
 for i in text:
     if i in sings:
         text = text.replace(i, "").lower()  # get text without characters and in lower case
