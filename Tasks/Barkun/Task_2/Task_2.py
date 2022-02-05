@@ -106,7 +106,7 @@ if entered_time_hours_hh >= 13:
 #           часов ровно
 
 if (entered_time_hours_hh == 0 or entered_time_hours_hh  >= 5) and (entered_time_hours_hh <= 12 and entered_time_min_mm == 0):
-    text_hour = dict_time_hh [entered_time_hours_hh]
+    text_hour = dict_time_hh [entered_time_hours_hh] 
     text_hour_text = dict_time_hh_text [0]
     text_hour_text_evenly = dict_time_hh_text [3]
 
