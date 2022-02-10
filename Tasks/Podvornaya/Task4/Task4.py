@@ -12,31 +12,31 @@ while True:
         continue
 
 with open("txt.txt", "r", encoding = 'utf-8') as f:
-    text = f.read()
+    text = f.readlines()
 
 f_text = ""
-words = text.split()
-length = 0
-lines = ""
-for i in words:
-    length += len(i) + 1
-    if length-1 == line:
-        lines += i
-        lines = lines + "\n"
-        f_text += lines
-        lines, length = "", 0
-        continue
-    if length-1 < line:
-        lines += i + " "
-    if length-1 > line:
-        lines = lines[:-1]
-        while len(lines) != line:
-            spaces = line - len(lines)
-            lines = lines.replace(' ', '  ', spaces)
-        lines += "\n"
-        f_text += lines
-        lines, length = i + " ", len(i) + 1,
-f_text += lines
+for x in text:
+    words = x.split()
+    length = 0
+    lines = ""
+    for i in words:
+        length += len(i) + 1
+        if length-1 == line:
+            lines += i + "\n"
+            f_text += lines
+            lines, length = "", 0
+            continue
+        if length-1 < line:
+            lines += i + " "
+        if length-1 > line:
+            lines = lines[:-1]
+            while len(lines) != line:
+                spaces = line - len(lines)
+                lines = lines.replace(' ', '  ', spaces)
+            lines += "\n"
+            f_text += lines
+            lines, length = i + " ", len(i) + 1,
+    f_text += lines + "\n"
 
 with open("result.txt", "w", encoding = 'utf-8') as f:
     f.write(f_text)
