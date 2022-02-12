@@ -64,6 +64,9 @@ def get_ranges(l):
                     out.append(is_sequence(start,end))
             else:
                 end = l[i+1]
+                # case when last is sequence
+                if end == l[-1]:
+                    out.append(is_sequence(start,end))
         else:
             out.append(is_sequence(start,end))
             start,end = l[i+1], l[i+1]
