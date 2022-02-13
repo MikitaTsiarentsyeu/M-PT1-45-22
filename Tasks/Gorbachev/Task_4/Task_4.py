@@ -7,12 +7,14 @@
 
 
 def read_func():
+    """Returns list of lines from existing text file"""
     with open("text.txt", 'r', encoding="utf-8") as f:
         text = f.readlines()
     f.close()
     return(text)
 
 def input_func():
+    """Returns number of symbols, that user must enter"""
     while True:
         symbol_num = input("Please enter maximum number of elements in a line (it must be number bigger than 35)...\n")
         if not symbol_num.isdigit():
@@ -25,6 +27,14 @@ def input_func():
     return(int(symbol_num))
 
 def format_func(num, text_raw):
+    """Returns formatted text according to the number of symbols
+        :param num: length of line
+        :type num: int
+        :param text_raw: list of strings
+        :type b: list
+            
+        :rtype: string
+        :return: formatted string"""
     text_output = ""
     for line in text_raw:
         words_sep = line.split()
@@ -48,6 +58,7 @@ def format_func(num, text_raw):
     return(text_output)
 
 def write_func(num, text_output):
+    """Write output text file"""
     with open("output.txt", 'w', encoding="utf-8") as f:
         f.write(text_output)
     f.close()
