@@ -9,7 +9,7 @@
 
 # ------------------------------------------------------------------------------------------------------------------ #
 
-# Решение:
+# Решение: N_1:
 
 # user interaction
 width = 0
@@ -36,4 +36,33 @@ with open("file.txt") as f, open("new_file.txt", "w") as new_f:
             new_f.write("".join(line) + "\n")
             line = [word, " "]
     new_f.write("".join(line)), f.close(), new_f.close()
+print(f"your text with a width of {width} symbol is formatted and written to a file called 'new_file'")
+
+# ------------------------------------------------------------------------------------------------------------------ #
+
+# Решение: N_2: 
+
+from func import add_gaps, write_file
+
+# user interaction
+width = 0
+while width < 36:
+    try:
+        width = int(input("please enter your text`s width > 35 | "))
+    except:
+        print("your enter are not correct, please try again")
+# text formatting
+with open("file.txt") as f, open("new_file_2.txt", "w") as new_f:
+    for line_file in f:
+        text = line_file.strip().split()
+        line = []
+        for word in text:
+            if width - len("".join(line)) >= len(word):
+                line.append(word), line.append(" ")
+            else:
+                add_gaps(width, line)
+                write_file(new_f, line)
+                line = [word, " "]
+        add_gaps(width, line)
+        write_file(new_f, line)
 print(f"your text with a width of {width} symbol is formatted and written to a file called 'new_file'")
