@@ -16,40 +16,37 @@ while True:
         continue
     break
 
-
-with open('Tasks\\Machekhin_Vlad\\Task4\\text.txt', 'r', encoding="utf8") as f:
+with open('Tasks\\Machekhin_Vlad\\Task4\\text.txt', 'r', encoding="utf8") as f: # yes yes, absolute links
     with open('Tasks\\Machekhin_Vlad\\Task4\\testik.txt', 'w', encoding='utf-8') as kekus:
         for stroka in f:
             words = stroka.split()
-            sum_elem = 0
+            num_elem = 0
             space = 0
             res = ''
 
-             
             for word in words: #word counter
-                sum_elem += len(word) + 1 
+                num_elem += len(word) + 1 
 
-                if sum_elem-1 > max:
+                if num_elem-1 > max:
                     res = res[:-1] # cut off the last space
                     
                     while len(res) != max: # adding spaces
-                        difference_mr = max - len(res) # подсчет нужного количества пробелов
+                        difference_mr = max - len(res) # counting the required number of spaces
                         if difference_mr > space:
                             difference_mr = space
                         res = res.replace(' ', '  ', difference_mr)
-                    print (f'{res}')
+                    print (res)
                     
                     kekus.write(res + '\n') # writing text
-                    # Update counters
+                    
                     res = word + " "
-                    count_space = 1
-                    sum_elem = len(res)
+                    space = 1
+                    num_elem = len(res)
                     continue
 
                 res += word + " "
                 space += 1
-            res = res[:-1]
-            print (f'{res}')
+            print(res)
             kekus.write(res + '\n')
 
         print ("This terrible task is complete. The new file has been written.")
