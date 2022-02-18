@@ -16,34 +16,37 @@ list_num_3 = ([2, 3, 8, 9])
 list_num = sorted(random.sample(range(30), 20))                     
 print ('\nRandom sequence of numbers:\n', list_num, '\n\n')
 
-def get_ranges (list_num):
-    list_nam_1 =[]
-    count = 0
-    quote = (""" " """)
+def get_ranges (list_num, list_nam_1 =[], count = 0, quote = (""" " """)):
     print (f"""\nA list of values collapsed into a string:\nget_ranges({list_num}) --> {quote.replace(' ', '')}""", end ='')
+    
     #Checking for a sequence of numbers of numbers
     for i in list_num:
         if (list_num[count] + 1) == list_num [count + 1]:
             list_nam_1.append(list_num[count])
             count += 1
+           
            # Checking for the last number of the sequence
             if len(list_num) == count + 1:
                 list_nam_1.append(list_num[count])                                              
-                print (f"""{str(list_nam_1[0])}-{(str(list_nam_1[len(list_nam_1) - 1]))}" """)
-                break
+                return_print = f"""{str(list_nam_1[0])}-{(str(list_nam_1[len(list_nam_1) - 1]))}" """
+                return return_print 
+            
         #If not the last number in the sequence
         elif (list_num[count-1] + 1) == list_num [count]:
             list_nam_1.append(i)                                                               
-            list_nam_1 = (f'{str(list_nam_1[0])}-{(str(list_nam_1[len(list_nam_1) - 1]))}')    #  
+            list_nam_1 = f'{str(list_nam_1[0])}-{(str(list_nam_1[len(list_nam_1) - 1]))}'   
             print (list_nam_1, end=', ')                                                       
+            
             #Zeroing the list to create a new sequence
             list_nam_1 = []
             count +=1
+           
             # Checking for the last number of the sequence
             if len(list_num) == count + 1:
                 list_nam_1.append(list_num[count])
-                print (f"""{str(list_nam_1[len(list_nam_1) - 1])}" """)
-                break
+                return_print = f"""{str(list_nam_1[len(list_nam_1) - 1])}" """
+                return return_print
+                
         #A new list for a new sequence
         else:
             list_nam_1.append(list_num[count])
@@ -51,20 +54,21 @@ def get_ranges (list_num):
             if len(list_num) == count + 1:
                 list_nam_1.append(list_num[count])
                 list_nam_1 = ', '.join(map(str, list_nam_1))
-                print (f"""{list_nam_1}" """)
-                break
+                return_print = f"""{list_nam_1}" """
+                return return_print
+                
             else:
                 print (f"{', '.join(map(str,list_nam_1))}", end =', ')
                 list_nam_1 = []
                 continue
 
 
-get_ranges(list_num)
+print (get_ranges(list_num))
 
-get_ranges(list_num_1)
+print (get_ranges(list_num_1))
 
-get_ranges(list_num_2)
+print (get_ranges(list_num_2))
 
-get_ranges(list_num_3)
+print (get_ranges(list_num_3))
 
 print ('\n\nProgram execution is finished!\n')
