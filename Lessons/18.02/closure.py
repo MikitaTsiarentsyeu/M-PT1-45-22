@@ -1,6 +1,3 @@
-from numpy import inner
-
-
 def outer(n):
     def inner(x):
         print(f"{n} and {x}")
