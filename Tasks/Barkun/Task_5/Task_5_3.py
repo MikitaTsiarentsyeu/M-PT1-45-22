@@ -16,7 +16,10 @@ list_num_3 = ([2, 3, 8, 9])
 list_num = sorted(random.sample(range(30), 20))                     
 print ('\nRandom sequence of numbers:\n', list_num, '\n\n')
 
-def get_ranges (list_num, list_nam_1 =[], count = 0, quote = (""" " """)):
+def get_ranges (list_num):
+    count = 0
+    quote = (""" " """)
+    list_nam_1 =[]
     print (f"""\nA list of values collapsed into a string:\nget_ranges({list_num}) --> {quote.replace(' ', '')}""", end ='')
     
     #Checking for a sequence of numbers of numbers
