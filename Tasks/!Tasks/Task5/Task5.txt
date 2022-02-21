@@ -1,5 +1,5 @@
 1. Реализовать функцию check_str которая получает на вход непустую строку и выдаёт информацию о количестве букв в верхнем и нижнем регистре.
-check_str('The quick Brow Fox') -> '3 upper case, 12 lower case'
+check_str('The quick Brown Fox') -> '3 upper case, 12 lower case'
 
 2. Реализовать функцию is_prime которая получает на вход любое число больше нуля и выдаёт True, если число является простым, и False, если нет.
 is_prime(787) -> True
