@@ -9,7 +9,7 @@ products = {
 # 6 - count_of_rate
 # [product_name(string), ['some_category_1'(string), 'some_category_2'(string)](choose_from_category_list) , price_in_dollars(int), count(int), rating(float), product_code(int), count_of_rate(int)],
     1 : ['Sneakers', ['Shoes', 'Sport'], 35, 8, 9.0, 1, 1],
-    2  : ['Keyboard', ['Electronics', 'Computers & Accessories'], 10, 4, 7.6, 2, 1],
+    2 : ['Keyboard', ['Electronics', 'Computers & Accessories'], 10, 4, 7.6, 2, 1],
     3 : ['Mouse', ['Electronics', 'Computers & Accessories'], 5, 15, 8.4, 3, 1],
     4 : ['Headsets', ['Electronics', 'Computers & Accessories', 'Music'], 15, 1, 7.0, 4, 1],
     5 : ['Sandals', ['Shoes'], 15, 6, 10.0, 5, 1],
@@ -22,10 +22,10 @@ products = {
 
 category = {
     1 : 'Shoes',
-    2 :  'Sport',
-    3 :  'Electronics', 
+    2 : 'Sport',
+    3 : 'Electronics', 
     4 : 'Computers & Accessories',
-    5 :  'Music', 
+    5 : 'Music', 
     6 : 'Books',
     7 : 'Vacuums'
 }
@@ -85,5 +85,6 @@ def buy():
     basket = {}
 
 def update_rate(key_product, rate):
-    new_rate =products[key_product][4] = (products[key_product][4] *  products[key_product][6] + rate) / ( products[key_product][6] + 1)
+    products[key_product][6] += 1
+    new_rate =products[key_product][4] = (products[key_product][4] * products[key_product][6] + rate) / (products[key_product][6])
     return new_rate
