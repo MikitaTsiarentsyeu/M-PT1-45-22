@@ -4,16 +4,18 @@ def beatifull_showing(products):
      return '\n'.join([f"{x[5]}. {x[0]} - {x[2]}$, {x[3]} in stock, rating - {x[4]} categories - {', '.join(x[1])} " for x in products])
 
 def get_all():
-    return  beatifull_showing(data.get_all())
+    return beatifull_showing(data.get_all())
 
 def get_all_category():
     return '\n'.join([f'{key} - {value}' for key, value in data.get_all_category().items()])
 
 def get_one_category(key):
-    return beatifull_showing(data.get_one_category(key))
+    answer = data.get_one_category(key)
+    if answer:
+        return beatifull_showing(answer)
+    return 'You selected unexists category. Please try again!'
 
 def add_to_basket(key_product, count):
-    # Check count on store
     if not data.update_count(key_product, count):
         return 'Wrong item count!'
     if data.add_to_basket(key_product, count):

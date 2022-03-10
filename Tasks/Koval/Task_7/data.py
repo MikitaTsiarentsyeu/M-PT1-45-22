@@ -39,10 +39,13 @@ def get_all_category():
     return category
 
 def get_one_category(key):
-    choosen_category = category[int(key)]
+    try:
+        choosen_category = category[int(key)]
+    except KeyError:
+        return False
     choosen_products = filter(lambda x: choosen_category in x[1], products.values())
     return choosen_products
-
+    
 def add_to_basket(key_product, count): 
         try:
             if basket.get(key_product):
