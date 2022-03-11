@@ -1,0 +1,73 @@
+# 1. Реализовать функцию check_str которая получает на вход непустую строку и выдаёт информацию о количестве букв в верхнем и нижнем регистре.
+# check_str('The quick Brow Fox') -> '3 upper case, 12 lower case'
+# 2. Реализовать функцию is_prime которая получает на вход любое число больше нуля и выдаёт True, если число является простым, и False, если нет.
+# is_prime(787) -> True
+# is_prime(777) -> False
+# 3. Реализовать функцию get_ranges которая получает на вход непустой список неповторяющихся целых чисел,
+# отсортированных по возрастанию, и которая этот список “сворачивает”.
+# get_ranges([0, 1, 2, 3, 4, 7, 8, 10, 11, 12])  ->  "0-4, 7-8, 10"
+# get_ranges([4,7,10])  -> "4, 7, 10"
+# get_ranges([2, 3, 8, 9])  -> "2-3, 8-9"
+
+#1
+text = ('The quick Brow Fox')
+
+def string_test(text):
+    dict={"up_case":0, "low_case":0}
+    for c in text:
+        if c.isupper():
+          dict["up_case"]+=1
+        elif c.islower():
+           dict["low_case"]+=1
+        else:
+           pass
+    print (f"""\n '{dict["up_case"]} upper case, {dict["low_case"]} lower case' \n""")
+    
+string_test(text)
+
+
+#2
+from math import sqrt
+ 
+number = int(input('Enter any integer below: \n'))
+
+def is_prime(num):
+    if num < 2:
+        return False
+    elif num == 2:
+        return True
+    nam_sqrt = sqrt(num)
+    i = 2
+    while i <= nam_sqrt:
+        if num % i == 0:
+            return False
+        i += 1
+    return True
+
+print(is_prime(number))
+
+
+#3
+def get_ranges(l):
+    def conv(left, right, sep = ', '):
+        '''возвращает интервал в виде текста, если границы совпадают - одно значение
+        left, right: границы
+        sep: разделитель, присоединяется в конце'''
+        
+        return '{}{}{}'.format(left, (right != left)*('-'+str(right)), sep)
+
+    left_border = l[0]
+    result_str = ''
+    
+    for i in range(len(l)-1):
+        #если следующее значение в списке идет не по порядку, закрываем интервал
+        
+        if l[i+1] > l[i]+1:
+            result_str += conv(left_border, l[i])
+            left_border = l[i + 1]
+    
+    #закрываем интервал последним элементом списка, разделитель не нужен
+    result_str += conv(left_border, l[len(l)-1], sep = '')
+    return result_str
+
+print(get_ranges([ 4, 4, 5, 6, 7, 9, 767]))
