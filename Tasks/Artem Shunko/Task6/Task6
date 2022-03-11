@@ -1,0 +1,26 @@
+ # 1. Написать рекурсивную функцию для вычисления суммы всех элементов вложенных (любая глубина) списков.
+ # Пример списка (синтаксис Python): [1, 2, [2, 4, [[7, 8], 4, 6]]], сумма элементов - 34
+
+ # 2. Написать рекурсивную функцию для вычисления n первых чисел Фибоначчи.
+ # Примеры вызова: 
+ # fib(5) -> 0,1,1,2,3
+ # fib(10) -> 0,1,1,2,3,5,8,13,21,34
+
+def list_sum(sum):
+     check = 0
+     for element in sum:
+         if (type(element) == type([])):
+             check = check + list_sum(element)
+         else:
+             check = check + element
+     return check
+print("Сумма элементов:", list_sum([1, 2, [2, 4, [[7, 8], 4, 6]]]))
+
+number = int(input("Вычисление чисел Фибоначчи: "))
+def fibonacci(number):
+     if (number <= 1):
+         return number
+     else:
+         return (fibonacci(number - 1) + fibonacci(number - 2))
+for i in range(number):
+     print(fibonacci(i), end=' ')
