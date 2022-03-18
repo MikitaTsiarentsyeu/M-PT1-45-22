@@ -1,0 +1,57 @@
+p { color: red; } 
+
+a { color:cadetblue; }
+
+a:visited { color:cadetblue; }
+
+h3 {color: blueviolet;
+    font-size: 50px;
+    text-decoration: dotted;}
+
+#test_h3 {color: deeppink;}
+
+.fruit_item {
+        color: chartreuse;
+    }
+
+#header {
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+}
+
+#logo {
+    margin-top: 0px;
+    padding-top: 21px;
+}
+
+.login {
+    margin-top: 0px;
+    padding-top: 21px;
+}
+
+#content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.content-left {
+    background-color: darkgoldenrod;
+}
+
+.content-middle {
+    background-color: darkmagenta;
+}
+
+.content-right {
+    background-color: indianred;
+}
+
+#footer {
+    background-color: midnightblue;
+    display: flex;
+    justify-content: space-around;
+}
