@@ -15,7 +15,7 @@ Including another URLconf
 """
 from unicodedata import name
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from app import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -25,8 +25,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.posts, name='posts'),
     path('posts/', views.posts, name='posts'),
+    path('posts/add_post', views.add_post, name='add_post'),
+    path('posts/add_post_model_form', views.add_post_model_form, name='add_post_model_form'),
     path('posts/<int:post_id>', views.post, name='post'),
     path('posts/<str:post_id>', views.post, name='post'),    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += [path('accounts/', include('django.contrib.auth.urls')),
+]
