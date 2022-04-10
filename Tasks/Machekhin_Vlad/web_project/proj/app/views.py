@@ -81,3 +81,14 @@ def add_post_model_form(request):
 
     return render(request, "add_post.html", {'form':form})
 
+
+# добавил это для первой страницы
+
+def beg(request): 
+    return render(request, 'begin.html')
+
+# для услуг
+
+def serv(request): 
+    return render(request, 'services.html')
+

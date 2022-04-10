@@ -1,50 +1,5 @@
 {% load static %}
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
 
-    <title>Blogs</title>
-    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
-    <script scr="{% static 'app/js/script.js' %}" ></script> -->
-    <!-- <script type="text/javascript" src={% static "app/js/script.js" %}></script> первый способ почему-то не работает, а этот сработал, поменять при работе -->
-<!-- </head>
-<body>
-    <div id = "header" style = "display : flex">
-        <a style="width: 90%" href="{% url 'posts' %}"><h1 id="logo">Blogs</h1></a>
-        {% if user.is_authenticated %}
-            <p style="padding-right: 1%;">{{ user.get_username }}</p>
-            <p style="padding-right: 1%;">
-                <a href="{% url 'logout' %}?next={{request.path}}">
-                    logout
-                </a>
-            </p>
-        {% else %}
-        <p >
-            <a href="{% url 'login' %}?next={{request.path}}">
-                login
-            </a>
-        </p>
-        {% endif %}
-        {% if perms.app.add_post %}
-        <p>
-            <a href="{% url 'add_post_model_form' %}">
-                add post
-            </a>
-        </p>
-        {% endif %}
-    </div>
-    <div id="content">
-
-        {% block content %}
-        {%endblock content %}
-
-    </div>
-    <div id="footer">
-        <p>powered by Django</p>
-    </div>
-</body>
-</html> -->
 
 
 <!DOCTYPE html>
@@ -57,11 +12,40 @@
     <link rel="stylesheet" href="../static/app/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/app/css/fontello.css">
     <link rel="stylesheet" href="../static/app/css/style.css">
-    <title>Лизинг</title>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <title>Гранд Лизинг</title>
 </head>
 <body>
     <header>
         <div class="container-fluid">
+            <div class="row">
+                <div class="col-9"></div>
+                <div class="col-3">
+                    <div id = "header" style = "display : flex">
+                        
+                        {% if user.is_authenticated %}
+                            
+                            
+
+                                <button type="button" class="btn btn-light">
+                                <a href="{% url 'logout' %}?next={{request.path}}">
+                                    logout
+                                </a>
+                            </button>
+                            </p>
+                        {% else %}
+                        <p>
+                            <button type="button" class="btn btn-light">
+                            <a href="{% url 'login' %}?next={{request.path}}">
+                                login
+                            </a>
+                            </button>
+                        </p>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-xl-7 col-md-6 col-sm-12"></div>
                 <div class="col-xl-3 col-md-4 col-sm-12">Минск, ул. Тимирязева 10, уровень 3</div>
@@ -70,11 +54,11 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-center text-black">КРЫСИНЫЙ ЛИЗИНГ</h1>                
+                    <h1 class="text-center text-black">ГРАНД ЛИЗИНГ</h1>                
                 </div>
             </div>
-
-            <div class="row brd">
+            <!-- второе меню -->
+            <!-- <div class="row brd">
                 <div class="brd col-xl-4 col-md-6 col-sm-12">
                   <a href="index.html">ГЛАВНАЯ</a>
                 </div>
@@ -84,7 +68,7 @@
                 <div class="brd col-xl-4 col-md-6 col-sm-12">
                     <a href="Feedback.html">ОБРАТНАЯ СВЯЗЬ</a>
                 </div>
-              </div>
+              </div> --> 
 
               
         </div>
@@ -99,23 +83,35 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">ГЛАВНАЯ</a>
+          <a class="navbar-brand" href="{% url 'beg' %}">ГЛАВНАЯ</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="services.html">УСЛУГИ</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'serv' %}">УСЛУГИ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Feedback.html">ОБРАТНАЯ СВЯЗЬ</a>
+                <a class="nav-link" href="{% url 'posts' %}">КЛИЕНТЫ О НАС</a>
               </li>
+              {% if perms.app.add_post %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'add_post_model_form' %}">ОСТАВИТЬ ОТЗЫВ</a>
+              </li>
+              {% endif %}
             </ul>
           </div>
         </div>
       </nav>
 
+ 
+
+      
+
+
+      {% block content %}
+      {% endblock content %}
 
 
 
@@ -123,12 +119,7 @@
 
 
 
-
-
-
-
-
-    <section class="about">
+    <!-- <section class="about">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -185,7 +176,7 @@
             </div>
             <a href="#up" class="btn btn-itd btn-lg text-uppercase">Наверх</a>
         </div>
-    </section>
+    </section> -->
 
 
 

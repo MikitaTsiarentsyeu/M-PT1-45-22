@@ -22,7 +22,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.posts, name='posts'),
+    path('', views.beg, name='beg'),
+    path('services/', views.serv, name='serv'),
     path('posts/', views.posts, name='posts'),
     path('posts/add_post', views.add_post, name='add_post'),
     path('posts/add_post_model_form', views.add_post_model_form, name='add_post_model_form'),
