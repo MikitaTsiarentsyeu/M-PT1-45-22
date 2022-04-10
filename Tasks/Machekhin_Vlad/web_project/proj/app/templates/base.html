@@ -1,0 +1,225 @@
+{% load static %}
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Blogs</title>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <script scr="{% static 'app/js/script.js' %}" ></script> -->
+    <!-- <script type="text/javascript" src={% static "app/js/script.js" %}></script> первый способ почему-то не работает, а этот сработал, поменять при работе -->
+<!-- </head>
+<body>
+    <div id = "header" style = "display : flex">
+        <a style="width: 90%" href="{% url 'posts' %}"><h1 id="logo">Blogs</h1></a>
+        {% if user.is_authenticated %}
+            <p style="padding-right: 1%;">{{ user.get_username }}</p>
+            <p style="padding-right: 1%;">
+                <a href="{% url 'logout' %}?next={{request.path}}">
+                    logout
+                </a>
+            </p>
+        {% else %}
+        <p >
+            <a href="{% url 'login' %}?next={{request.path}}">
+                login
+            </a>
+        </p>
+        {% endif %}
+        {% if perms.app.add_post %}
+        <p>
+            <a href="{% url 'add_post_model_form' %}">
+                add post
+            </a>
+        </p>
+        {% endif %}
+    </div>
+    <div id="content">
+
+        {% block content %}
+        {%endblock content %}
+
+    </div>
+    <div id="footer">
+        <p>powered by Django</p>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/app/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../static/app/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/app/css/fontello.css">
+    <link rel="stylesheet" href="../static/app/css/style.css">
+    <title>Лизинг</title>
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-7 col-md-6 col-sm-12"></div>
+                <div class="col-xl-3 col-md-4 col-sm-12">Минск, ул. Тимирязева 10, уровень 3</div>
+                <div class="col-xl-2 col-md-2 col-sm-12">+375(29)<b>1231234</b><br>+375(44)<b>3839211</div>
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center text-black">КРЫСИНЫЙ ЛИЗИНГ</h1>                
+                </div>
+            </div>
+
+            <div class="row brd">
+                <div class="brd col-xl-4 col-md-6 col-sm-12">
+                  <a href="index.html">ГЛАВНАЯ</a>
+                </div>
+                <div class="brd col-xl-4 col-md-6 col-sm-12">
+                    <a href="services.html">НАШИ УСЛУГИ</a>
+                </div>
+                <div class="brd col-xl-4 col-md-6 col-sm-12">
+                    <a href="Feedback.html">ОБРАТНАЯ СВЯЗЬ</a>
+                </div>
+              </div>
+
+              
+        </div>
+    </header>
+    
+
+
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">ГЛАВНАЯ</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="services.html">УСЛУГИ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Feedback.html">ОБРАТНАЯ СВЯЗЬ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center text-uppercase color1 mb-5" id="up">О нас</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p>Наша лизинговая Х - это современная, универсальная и амбициозная лизинговая компания, предлагающая своим клиентам самые удобные и выгодные условия как в городе Минске, так и по всей Беларуси. Услуги, которые мы предлагаем, рассчитаны на широкий круг клиентов, при этом мы целенаправленно работаем исключительно на удовлетворение индивидуальных потребностей каждого клиента.</p>
+                    <img src="../static/app/img/leasing7.png" class="img-fluid mb-5" alt="leasing">
+                    <p>Если лизингом занимаются профессионалы, то он превращается в самый простой, рациональный и очень удобный способ крупных приобретений. И именно такие – опытные и целеустремлённые менеджеры - работают для Вас в компании «Х". Пользоваться услугой лизинга от надёжной и проверенной специализированной лизинговой компании – это удобно и выгодно, ведь у нас:</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <div class="itd_circle"><i class="icon-dollar"></i></div>
+                    <h5 class="text-center">1. Вам не понадобится стартовое вложение крупных сумм, плюс экономятся затраты на налоговые преференции</h5>
+                    <div class="line"></div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <div class="itd_circle"><i class="icon-calendar"></i></i></div>
+                    <h5 class="text-center">2. Платежи распределяются удобным для Вас способом и по наиболее подходящему графику;</h5>
+                    <div class="line"></div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <div class="itd_circle"><i class="icon-chart-bar"></i></div>
+                    <h5 class="text-center">3. Получить финансирование, воспользовавшись автолизингом, намного проще, при этом можно обойтись без залогового обеспечения;</h5>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p>Мы – та лизинговая компания в Минске, которая готова предложить вам профессиональные услуги на самых лучших условиях!</p>
+                    <p>«Х» - это свобода Вашего выбора! Вы можете выбрать предмет автолизинга (легковые авто, различные модели грузовиков, полуприцепы, спецтехнику) и максимально удобные для Вас условия сотрудничества с нами. Мы - универсальная лизинговая компания, и основным направлением нашей деятельности является предоставление современных услуг автолизинга на, пожалуй,  самых гибких условиях на рынке Беларуси. Минимальный пакет документов для рассмотрения Вашей заявки, решение по сделке - в течении 30 мин, после предоставления всех необходимых документов, длительные сроки финансирования и никаких ограничений по марке и стоимости автомобиля. Также, мы можем предоставить Вам заем под залог Вашего авто, при этом Вы продолжите его эксплуатировать. 
+                    
+                    Наша команда из более чем 20 профессионалов своего дела имеет многолетний опыт в лизинге, мы готовы оказывать помощь и поддержку каждого клиента на любом этапе, будь это выбор авто или вопросы по уже действующему договору. Накапливая опыт, ежегодно начиная с 2017 мы увеличиваем наш лизинговый портфель более чем в 2 раза, чем подтверждаем свое лидерство на рынке лизинга Республики Беларусь.
+                    </p>
+
+                    <ol><b>Наши преимущества:</b>
+                        <li>индивидуальный подход абсолютно к каждому клиенту;</li>
+                        <li>подбор лучших и самых оптимальных условий для полного удовлетворения пожеланий клиента;</li>
+                        <li>финансирование на длительный срок;</li>
+                        <li>минимальный набор документов (для подачи заявки необходим только паспорт);</li>
+                        <li>оперативное принятие решения (мы примем решение о сделке в течение 30 минут после того, как получим от Вас все необходимые — документы);</li>
+                        <li>финансирование покупки любой марки автомобиля</li>
+                      </ol>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            
+            <div class="itd_play" data-bs-toggle="modal" data-bs-target="#myModale">
+                <div class="itd_triangle"></div>
+            </div>
+            <a href="#up" class="btn btn-itd btn-lg text-uppercase">Наверх</a>
+        </div>
+    </section>
+
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a href="https://vk.com/" target="_blank" class="btn btn-outline-light"><i class="icon-vkontakte"></i></a>
+                    <a href="https://web.telegram.org/" target="_blank" class="btn btn-outline-light"><i class="icon-telegram"></i></a>
+                    <a href="https://web.whatsapp.com/" target="_blank" class="btn btn-outline-light"><i class="icon-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" class="btn btn-outline-light"><i class="icon-facebook-official"></i></a>
+                    <a href="https://ok.ru/" target="_blank" class="btn btn-outline-light"><i class="icon-odnoklassniki-square"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="myModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Краткое видео услуг</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class='embed-container'><iframe src='https://www.youtube.com/embed//9oniLC7BSP8' frameborder='0' allowfullscreen></iframe></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="../static/app/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
