@@ -1,0 +1,18 @@
+<div class="container-fluid mt-0">
+    {% for product in page_obj.object_list %}
+    {% cycle '<div class="row">' '' '' %}
+        <div class="col-md-3" style="margin: 3%; margin-left: 5%;">
+            <div class="card p-6">
+                <a href="{{ product.get_absolute_url }}"><img class="card-img-top" src="{{ product.photo.url }}" alt="Card image cap"></a>
+                <div class="card-body">
+                    <a href="{{ product.get_absolute_url }}" class='product_title'><h4 class="card-title">{{ product.product_name }}</h5></a>
+                    <p class="card-text">{{ product.price }}$</p>
+                    <p class="card-text"><small class="text-muted">{{ product.author }}</small></p>
+                </div>
+            </div>
+        </div>
+    {% cycle '' '' '</div>' %}
+    {% empty %}
+    <h1>Ooops...</h1>
+    {% endfor %}
+</div>

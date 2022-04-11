@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %} {{ block.super }} : {{ selected_product }} {% endblock %}
+
+{% block content_title %} {{ selected_product }} {% endblock %}
+{% block content %}
+<section id="listing" class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <!-- Home Main Image -->
+                <center><img src="{{ selected_product.photo.url }}" alt="photo" class="img-main img-fluid mb-3 w-50"></center>
+            </div>
+            <!-- Fields -->
+            <div class="row mb-5 fields">
+                <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-secondary">
+                            <i class="fas fa-car"></i> Description:
+                            <span class="float-right">{{ selected_product.description }}
+                            </span>
+                        </li>
+                        <li class="list-group-item text-secondary">
+                            <i class="fas fa-money-bill-alt"></i> Asking Price:
+                            <span class="float-right">${{ selected_product.price }}</span>
+                        </li>
+                        <li class="list-group-item text-secondary">
+                            <i class="fas fa-bed"></i> Rating:
+                            <span class="float-right">{{ selected_product.rating|floatformat:2 }}</span>
+                        </li>
+                        <li class="list-group-item text-secondary">
+                            <i class="fas fa-bath"></i> Count of rate:
+                            <span class="float-right">{{ selected_product.count_of_rate }}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-secondary">
+                            <i class="fas fa-th-large"></i> Availability:
+                            <span class="float-right">{{ selected_product.count }}</span>
+                        </li>
+                        <li class="list-group-item text-secondary">
+                            <i class="fas fa-square"></i> Author:
+                            <span class="float-right">{{ selected_product.author }}
+                            </span>
+                        </li>
+                        <li class="list-group-item text-secondary">
+                            <i class="fas fa-calendar"></i> Categories:
+                            <span class="float-right">{{ selected_product.get_categories }}</span>
+                        </li>
+                        <li class="list-group-item text-secondary">
+                            <i class="fas fa-calendar"></i> Rate this product:
+                            <form action="{{ request.get_full_path }}" method="POST">
+                                {% csrf_token %}
+                                <select name="select">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10" selected>10</option>
+                                </select>
+                                <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Rate</button>
+                            </form>
+                        </li>
+                        <!-- Необходимо добавить возможность оценить товар -->
+                        <!-- Добавить в корзину -->
+                        <!-- В идеальном мире комменты -->
+                        <!-- Ещё и логирование... -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
