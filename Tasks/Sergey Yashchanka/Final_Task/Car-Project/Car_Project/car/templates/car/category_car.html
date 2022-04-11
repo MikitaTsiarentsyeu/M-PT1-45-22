@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block category %}
+{% for c in cat %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'car:category' c.id %}">{{ c.name }}</a>
+</li>
+{% endfor %}
+{% endblock category %}
+
+{% block content %}
+
+
+<div class="row col-sm-12 ">
+    {% for i in cars %}
+    <div class="card p-1 bg-light col-sm-4 " style="border-radius: 10%">
+        {% if i.image_main %}
+        <div class="m-5">
+            <a href="{% url 'car:car_id' i.id %}"><img src="{{ i.image_main.url }}"
+                                                       class="card-img-top ms-auto img-fluid"
+                                                       style="border-radius: 10%" alt="..."></a>
+        </div>
+        {% else %}
+        Нет картинки
+        {% endif %}
+        <div class="card-body">
+
+            <h5 class="card-title">{{ i.title }}</h5>
+            <p class="card-text">{{ i.text|stringformat:".50s..." }}</p>
+
+        </div>
+        <a href="#" class="btn btn-primary" >{{ i.phone }}</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
