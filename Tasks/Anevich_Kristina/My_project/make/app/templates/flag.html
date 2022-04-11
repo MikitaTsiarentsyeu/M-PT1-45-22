@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ name }}
+{% endblock %}
+
+{% block content %}
+<div class="general-container">
+    <div class="container top-container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-1">
+                <h1 style="color: brown; font-weight: bold;">Comments</h1>
+                {% if text %}
+                    {% for el in text %}
+                        <div class="alert alert-warning mt-2">
+                            <h3>{{ el.user }}</h3>
+                            <p>{{ el.text }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No comments!</p> 
+                {% endif %}
+            </div> 
+        </div> 
+    </div> 
+</div>    
+    
+{% endblock %}

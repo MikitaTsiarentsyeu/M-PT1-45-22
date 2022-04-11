@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Comments{{ user }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container top-container">
+    <div class= "row">
+        <div class= "col-lg-4 col-lg-offset-1">
+            <h1 style="color: brown; font-weight: bold;">Leave a comment!</h1><br>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.user }}<br>
+                {{ form.text }}<br>
+                <div>
+                    <button type="submit" class="btn btn-outline-danger">Save</button>
+                </div>
+            </form>          
+                <span>{{error}}</span>
+        </div>
+    </div>
+</div>      
+{% endblock %}
+
+{% comment %} <input type="text" placeholder="Enter your name" class="form-control"><br>
+                    <textarea placeholder="Enter your comment" class="form-control"></textarea><br> {% endcomment %}
