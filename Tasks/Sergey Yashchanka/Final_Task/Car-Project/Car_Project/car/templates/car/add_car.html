@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="card text-center">
+    <div class="card-header mb-4">
+        <h3 class="text-center">ADD YOUR CAR HERE!</h3>
+    </div>
+</div>
+
+<div class="features bg-dark mb-3 pb-4">
+
+    <form method="post" enctype="multipart/form-data" class="formadd">
+        {% csrf_token %}
+        <h5 class="text-center text-white">PLEASE! FILL IN FORM FIELDS</h5>
+        {{ form.title }}<br>
+        <p>{{ form.category }}</p>
+        <p>{{ form.image_main }}</p>
+        <p>{{ form.image_1 }}</p>
+        <p>{{ form.image_2 }}</p>
+        <p>{{ form.image_3 }}</p>
+        {{ form.text }}<br>
+        {{ form.phone }}<br>
+        <button type="submit" class="btn btn-success ">Add data</button>
+    </form>
+
+</div>
+
+{% endblock content %}
