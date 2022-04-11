@@ -1,0 +1,18 @@
+{% extends 'Financial_literacy/base.html' %}
+{% load static %}
+
+{% block intro %}<div class="intro__materials_add">{% endblock %}
+
+{% block content%}
+    <h1 class="intro__title__materials"> Добавление информации </h1>
+        <form method= "post">
+            {% csrf_token %}
+            <div class="form">
+                {{ form.title }} <br>
+                {{ form.content }} <br>
+                {{ form.author }}<br>
+            </div>
+            <button class="BTN btn--green">Сохронить</button>
+            <span class="span">{{ error }}</span>
+        </form>
+{% endblock%}
