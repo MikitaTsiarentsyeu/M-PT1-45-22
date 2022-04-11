@@ -1,0 +1,35 @@
+{% load products_tags %}
+{% get_categories as categories %}
+{% get_adverisements as advertisements %}
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark col-md-2 ">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-4" style="padding-left: 8px">Categories</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills nav-flush flex-column mb-5 text-center">
+        {% for category in categories %}
+        <li class="nav-item">
+            <a href="{{ category.get_absolute_url }}" class="categories_list nav-link text-white " aria-current="page"
+                 data-bs-toggle="tooltip" data-bs-placement="right">{{ category.category_name | capfirst }}
+            </a>
+        </li>
+        {% endfor %}
+        <hr>
+    </ul>
+    <div class="container mt-1">
+        {% for advertisement in advertisements %}
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="card text-white bg-secondary border-light mb-3 p-2" style="width: 100%;">
+                    <img class="card-img-top" src="{{ advertisement.image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text" style="font-size: 12px">
+                            <center>{{ advertisement.text | capfirst }}</center>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
