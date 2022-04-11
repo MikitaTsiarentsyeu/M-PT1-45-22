@@ -1,0 +1,50 @@
+{% extends 'app/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block page %} 
+ВОПРОСЫ И ОТВЕТЫ
+<p class="mt-auto text-white-50">
+{% endblock %}
+
+
+{% block content %} 
+    <h2>Страница вопросов и ответов</h2>
+   
+        {% if questions %}
+            {% for i in questions %}
+                {% if i.question %}
+                    <div class="alert alert-secondary mt-4">   
+                        <h3>{{ i.question }}</h3>
+                            
+                            {% if i.author_q %}
+                                <span><i>Автор вопроса: {{i.author_q}}</i></span>
+                            {% else %}
+                                <span><i>Автор вопроса: Инкогнито</i></span>
+                            {% endif %}
+                                <span><i>{{i.issued}}</i></span>
+                            
+                            {% if i.answer %}
+                                <h5>{{ i.answer}}</h5>
+                                    {% if i.author_a %}
+                                        <span><i>Автор вопроса: {{i.author_a}}</i></span>
+                                    {% else %}
+                                        <span><i>Автор вопроса: Инкогнито</i></span>
+                                    {% endif %}
+                                    <span><i>{{i.issued}}</i></span>
+                            {% else %}
+                                <h3>На этот вопрос пока нет ответа!</h3>
+                                <h3><u><a class="nav-link" href="{% url 'add_ans' %}">Ответьте на этот вопрос!</a></u></h3>
+                            {% endif %}
+                    </div>
+                {% endif %}   
+            {% endfor %}
+        {% else %}
+            <h2>Вопросы и ответы отсутствуют</h2>
+        {% endif %}
+{% endblock %}
+
+
+

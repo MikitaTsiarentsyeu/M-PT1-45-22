@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+
+{% block title %}
+Ответить на вопрос
+{% endblock %}
+
+{% block page %} 
+ОТВЕТ
+{% endblock %}
+
+{% block content %} 
+    <h2>Ответить на вопрос</h2>
+    <form method = "post">
+        {% csrf_token %}
+        {{ form.question }}<br>
+        {{ form.author_q }}<br>
+        {{ form.answer }}<br>
+        {{ form.author_a }}<br>
+        <button type="submit" class="btn btn-light">Добавить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}
