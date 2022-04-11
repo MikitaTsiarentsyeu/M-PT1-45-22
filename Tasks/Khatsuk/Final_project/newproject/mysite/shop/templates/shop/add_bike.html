@@ -1,0 +1,14 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+<section>
+   <div class="container-xxl">
+      <h1>Добавить новый велосипед:</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_ul }}
+       <button type="submit">Добавить</button>
+      </form>
+ </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+    <div class="container top-container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-1">
+                <h1>You need makeup?</h1>
+                <h1>We are at your service</h1>
+                    <form position="absolute" method="post" class="form-inline text-right">
+                        {% csrf_token %}
+                        {{ form.name }}<br>
+                        {{ form.phone }}<br>
+                        <div>
+                            <button type="submit" class="btn btn-outline-danger">Call me</button>
+                        </div>    
+                        <span>{{error}}</span>
+                    </form> 
+                        
+            </div>
+        </div>    
+    </div>       
+</div>       
+{% endblock %}

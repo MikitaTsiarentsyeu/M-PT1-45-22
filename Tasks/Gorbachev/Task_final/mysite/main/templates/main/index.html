@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+
+{% block header %}
+<ul class="nav nav-pills">
+    <li class="nav-item"><a href="{% url 'home' %}"class="nav-link active" aria-current="page">Главная</a></li>
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
+    <li class="nav-item"><a href="{% url 'create' %}" class="nav-link">Добавить запись</a></li>
+  </ul>
+{% endblock %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+{% block description %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="fw-normal">Главная</h1>
+    <p class="fs-5 text-muted">A long time ago in a galaxy far, far away....</p>
+</div>
+{% endblock %}
+
+
+{% block content %}
+  {% if posts %}
+    {% for elem in posts %}
+    <div class="row p-4 pb-5 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+        {% if elem.image %}
+        <img class="rounded-lg-3" src="{{ elem.image.url }}" alt="" width="100%">
+        {% else %}
+        {% endif %}
+    </div>
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h2 class="fw-bold">{{ elem.title }}</h2>
+        <p class="lead">{{ elem.preview }}</p>
+        <div class="mb-1 text-muted">{{ elem.datetime }}</div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"><a href="{% url 'article' elem.id %}" class="nav-link text-white">Читать далее...</a></button>
+        </div>
+      </div>
+    </div>
+    <div><p></p></div>
+      {% endfor %}
+    {% else %}
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+    </div>
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h3 class="display-4 fw-bold lh-1">Публикации не найдены</h3>
+        <p class="lead">Публикаций нет</p>
+      </div>
+    <div><p></p></div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+
+{% if posts %}
+{% block nav %}
+<p><button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"><a href="#" class="text-white">↑ Наверх ↑</a></button></p>
+{% endblock %} 
+{% endif %}

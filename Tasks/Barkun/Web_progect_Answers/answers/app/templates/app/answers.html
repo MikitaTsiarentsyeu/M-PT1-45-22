@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block page %} 
+ОТВЕТЫ
+{% endblock %}
+
+{% block content %} 
+    <h2>Ответьте на вопросы без ответов</h2>
+    <h3>{{ i.question }}</h3>
+            {% for i in questions %}
+                {% if not i.answer %}
+                    <div class="alert alert-secondary mt-4">   
+                        <h3><a class="nav-link" href="{% url 'page_q' %}">{{ i.question }}</a></h3>
+                            
+                            {% if i.author_q %}
+                                <span><i>Автор вопроса: {{i.author_q}}</i></span>
+                            {% else %}
+                                <span><i>Автор вопроса: Инкогнито</i></span>
+                            {% endif %}
+                                <span><i>{{i.issued}}</i></span>
+                        
+                    </div>
+                {% endif %}
+            {% endfor %}
+{% endblock %}
+

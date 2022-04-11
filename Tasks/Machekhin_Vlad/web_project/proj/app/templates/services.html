@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+
+
+
+
+{% block content %}
+
+<section class="services about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center text-uppercase color1 mb-5" id="up">У нас вы можете оформить следующие предметы лизинга:</h2>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-6 col-sm-12">
+                <h5 class="text-center">Легковые авто</h5>
+            </div> 
+            <div class="col-md-6 col-sm-12">
+                <h5 class="text-center">Грузовые авто</h5>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h5 class="text-center">Полуприцепы</h5>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h5 class="text-center">Cпецтехника и другое оборудование</h5>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <img src="../static/app/img/leasing4.jpg" class="img-fluid " alt="leasing">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div>Мы предоставляем возможность оформления непотребляемого имущества в лизинг на срок от 1 года до 5 лет. Обязательное условие - авансовый платеж, согласно законодательству он не может быть менее 10% и более 40%. Возраст лизингополучателя - не менее 25 лет и не более 60.<br>
+                График оплаты  - аннуитетный, то есть все платежи равны между собой.<br>
+                Мы предоставляем возможность досрочного выкупа автомобиля через 1 год после заключения договора лизинга, однако это допустимо только с письменного согласия лизингодателя.<br>
+                На протяжении всего срока лизинга собственником предмета лизинга является лизинговая Компания, лизингополучатель является лицом, осуществляющим владение и пользование предметом лизинга.<br>
+                Сразу после заключения сделки обязательно оформление страховки полное КАСКО.
+            </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        
+        <div class="itd_play" data-bs-toggle="modal" data-bs-target="#myModale">
+            <div class="itd_triangle"></div>
+        </div>
+        <a href="#up" class="btn btn-itd btn-lg text-uppercase">Наверх</a>
+    </div>
+</section>
+
+<div class="modal fade" id="myModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Краткое видео услуг</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class='embed-container'><iframe src='https://www.youtube.com/embed//9oniLC7BSP8' frameborder='0' allowfullscreen></iframe></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

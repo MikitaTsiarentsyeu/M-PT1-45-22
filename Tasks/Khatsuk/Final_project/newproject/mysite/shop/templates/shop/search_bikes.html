@@ -1,0 +1,14 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+<section>
+   <div class="container-xxl">
+        <h1> Подобрать велосипед по параметрам:</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_table }}
+        <button type="submit">Искать</button>
+        </form>
+    </div>
+</section>
+{% endblock content %}

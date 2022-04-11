@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="about">
+         
+        <div id="up">
+            {% for post in posts %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+            
+                    <div class="otsPosts">
+                        <a href="{% url 'post' post.id %}">
+                            <h1 class="otsH">{{ post.title|capfirst }}</h1>
+                        </a>
+                        <!-- <h3>{{ post.subtitle|capfirst }}</h3> -->
+                        <img width="80%" float: right; src="{{ post.image.url }}">
+                    </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-12">
+                <a href="#up" class="btn btn-itd btn-lg text-uppercase">Наверх</a>
+            </div>
+        </div>
+    
+</section>
+{%endblock content %}
+
+
+

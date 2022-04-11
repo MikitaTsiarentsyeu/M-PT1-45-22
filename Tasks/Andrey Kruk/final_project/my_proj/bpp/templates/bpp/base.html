@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'bpp/css/style.css' %}">
+    <title>Белпромпроект</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header_icon">
+            <a href="/">
+                <img src="{% static 'bpp/images/logo.png' %}">
+            </a>
+        </div>
+        <div class="header_logo">
+            <h2>БЕЛПРОМПРОЕКТ</h2>
+            <p>Республика Беларусь, г. Минск, пл. Свободы, 17</p>
+        </div>
+    </header>
+
+    {% block content %}
+
+    <div class="intro">
+        <div class = "container_intro">
+            <h1>ВИДЫ ДЕЯТЕЛЬНОСТИ</h1>
+            <p>УП «БЕЛПРОМПРОЕКТ» осуществляет разработку Предпроектной документации, Архитектурных и (или) Строительных проектов на возведение, реконструкцию (модернизацию), капитальный ремонт и реставрацию объектов строительства</p>
+        </div>
+    </div>
+    <div class="objects">
+        <h1>НАШИ ОБЪЕКТЫ</h1>
+        <ul>
+            <li><p>Комплекс зданий гостинично-делового центра «Веснинка»</p>
+                <img src="{% static 'bpp/images/vesninka.jpg' %}">
+            </li>
+            <li><p>Многофункциональный спортивно-развлекательный комплекс «Чижовка-арена»</p>
+                <img src="{% static 'bpp/images/chizhovka.jpg' %}">
+            </li>
+            <li><p>Завод ООО «МАЗ-ВЕЙЧАЙ»</p>
+                <img src="{% static 'bpp/images/MAZ.jpg' %}">
+            </li>
+        </ul>
+    </div>
+    <div class="job_offer">
+        <h1>РАБОТА У НАС</h1>
+        <p>Пожалуйста, заполните форму:</p>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% for f in form %}
+
+            <label for="{{ f.id_for_label }}">{{ f.label }}:</label>
+            {{ f }}
+            <br>
+
+            {% endfor %}
+
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+    <footer class="footer">
+        <p>Сайт разработан выпускником курсa IT-Academy по разработке веб-приложений на языке программирования Python
+        <p>
+    </footer>
+    {% endblock content %}
+</body>
+</html>
