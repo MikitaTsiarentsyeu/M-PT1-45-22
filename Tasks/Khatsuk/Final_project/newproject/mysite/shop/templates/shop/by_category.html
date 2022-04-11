@@ -1,0 +1,25 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+    <section>
+       <div class="container-xxl">
+           <h1>Выбирай</h1>
+           <div class="row row-cols-1 row-cols-md-3 g-4">
+
+           {% for i in bikes %}
+               <div class="col">
+                        <div class="card" style="width: 18rem;">
+                          <img src="{{i.image.url}}" class="card-img-top" alt="{{i.title}}">
+                          <div class="card-body">
+                            <h5 class="card-title">{{i.brand}}</h5>
+                            <h6 class="card-title">{{i.title}}</h6>
+                            <p class="card-text">{{i.description}}</p>
+                            <a href="{% url 'bike' i.pk %}" class="btn btn-primary">Подробнее</a>
+                          </div>
+                        </div>
+               </div>
+           {% endfor %}
+           </div>
+       </div>
+    </section>
+{% endblock content %}
