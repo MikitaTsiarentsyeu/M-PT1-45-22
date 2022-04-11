@@ -1,0 +1,35 @@
+{% extends 'Financial_literacy/base.html' %}
+
+{% load static %}
+
+{% block title %}
+materials
+{% endblock %}
+
+
+{% block nav %}
+<nav class="nav">
+    <a class="nav__transitions" href="{% url 'home' %}">Главная</a>
+    <a class="nav__transitions" href="{}">Главные лица проекта</a>
+    <a class="nav__transitions" href="{% url 'news' %}">Новости</a>
+    <a class="nav__transitions" href="{% url 'information' %}">Добавить информацию</a>
+</nav>
+{% endblock %}
+
+
+{% block intro %}<div class="intro__materials"></div>{% endblock %}
+
+{% block post %}
+    <h1 class="intro__title__materials"> Информация </h1>
+    {% if information  %}
+        {% for list in information %}
+           <div class="alert alert-warning mt-2 ">
+               <h2> {{ list.title }} </h2>
+               <p> {{ list.content }} </p>
+               <h3 class="intro__title__data"> {{ list.issued }} {{ list.author.name }} </h3>
+           </div>
+        {% endfor %}
+    {% else  %}
+        <p> Материал отсутствует или был удален! </p>
+    {% endif %}
+{% endblock %}
