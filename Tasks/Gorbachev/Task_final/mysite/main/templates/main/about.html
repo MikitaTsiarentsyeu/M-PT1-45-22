@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block header %}
+<ul class="nav nav-pills">
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link active" aria-current="page">О нас</a></li>
+    <li class="nav-item"><a href="{% url 'create' %}" class="nav-link">Добавить запись</a></li>
+  </ul>
+{% endblock %}
+
+
+{% block title %}
+Страница о нас
+{% endblock %}
+
+{% block description %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="fw-normal">Страница о нас</h1>
+    <p class="fs-5 text-muted">How it was when we were young</p>
+</div>
+{% endblock %}
+
+https://sites.northwestern.edu/thesafe/files/2018/07/old_pc-2cfq1e2.jpg
+
+{% block content %}
+<div class="row p-4 pb-5 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+      <img class="rounded-lg-3" src="https://cdn.dribbble.com/users/3641614/screenshots/10082340/media/f8e055ffcb705cd65ba6e978d580eb48.gif" alt="" width="100%">
+  </div>
+    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+      <div class="mb-1 text-muted">Давным-далеко Древние написали в свитках, что Силы Тьмы погребут все королевства, пока наше не останется последним.</div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block nav %}
+<div></div>
+{% endblock %} 

@@ -1,0 +1,106 @@
+{% extends 'main/base.html' %}
+
+{% block header %}
+<ul class="nav nav-pills">
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
+    <li class="nav-item"><a href="{% url 'create' %}" class="nav-link">Добавить запись</a></li>
+  </ul>
+{% endblock %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block description %}
+{% endblock %}
+
+{% block content %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <article class="blog-post">
+        <h1 class="blog-post-title">{{ post.title }}</h1>
+        <p class="blog-post-meta">{{ post.datatime }}</p><br>
+        <p class="fs-5 text-muted">{{ post.preview }}</p>
+        {% if post.image %}
+        <p class="fs-5 text-muted"><img class="mb-2" src="{{ post.image.url }}" alt="" width="80%"></p>
+        {% else %}
+        {% endif %}
+        <p class="fs-5 text-muted">{{ post.content }}</p>
+        <div class="mb-1 text-muted">{{ post.datetime }}</div>
+      </article>
+ </div>
+{% endblock %}
+
+{% block comments %}
+<div class="bd-example comment-wrapper container-fluid p-3 pb-md-4 mx-auto panel-body p-4 pb-5 align-items-center rounded-3 border shadow-lg">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-form-group">
+      <label for="{{field.id_for_label}}">{{field.label}}</label>
+        <input
+            type="{{ field.field.widget.input_type }}"
+            class="form-control input-lg"
+            id="{{ field.id_for_label }}"
+            name="{{field.name}}"
+            required/>
+    </div>
+    <div><p></p></div>
+{% endfor %}
+    <div class="pricing-header text-center">
+    <button type="submit" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Добавить комментарий</button>
+    <span>{{ error }}</span> 
+    </div>
+  </form>
+  </div>
+
+  
+    {% if latest_comments %}
+    {% if post %}
+            <div class="clearfix"></div>
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                  <h4 class="blog-post-title" id="comment">Комментарии</h4>
+            <hr>
+            <ul class="media-list">
+              {% for elem in latest_comments %}
+              <li class="media"> 
+                <a href="#" class="pull-left"> 
+                  <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle" width="45px"> </a>
+                  <div class="media-body"> <span class="text-muted pull-right"> 
+                    <small class="text-muted">{{ elem.datetime }}</small> </span>
+                     <strong class="text-success">>{{ elem.author_name }}</strong>
+                     <p>{{ elem.comment_text }}</p>
+                      </div>
+                    </li>
+              {% endfor %}
+                    </ul>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% else %}
+            <div class="clearfix"></div>
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                  <h4 class="blog-post-title"  id="comment">Комментарии</h4>
+            <hr>
+            <ul class="media-list">
+            <li class="media"> 
+                <div class="media-body"> <span class="text-muted pull-right"> 
+                   <p>Пока не оставлено ни одного комментария</p>
+                    </div>
+                  </li>
+                </ul>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+{% endblock %} 
+
+
+{% block nav %}
+<p><button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"><a href="#" class="text-white">↑ Наверх ↑</a></button></p>
+{% endblock %} 
