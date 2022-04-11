@@ -6,8 +6,8 @@ from .models import Post, Author
 from .forms import AddPost, AddPostModelForm
 from django.contrib.auth.decorators import permission_required
 
-def home(request):
-    return render(request, 'home.html', {"test": 1234})
+# def home(request):
+#     return render(request, 'home.html', {"test": 1234})
 
 # def posts(request):
 #     posts = Post.objects.all()
@@ -50,7 +50,7 @@ def add_post(request):
             post.subtitle = form.cleaned_data['subtitle']
             post.content = form.cleaned_data['content']
             post.image = form.cleaned_data['image']
-            post.post_type = form.cleaned_data['post_type']
+            # post.post_type = form.cleaned_data['post_type']
 
             post.save()
 

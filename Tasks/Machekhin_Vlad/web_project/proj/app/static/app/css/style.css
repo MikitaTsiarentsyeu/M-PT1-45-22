@@ -80,7 +80,7 @@ footer {
     height: 100%;
 }
 
-/* цвет о нас */
+/* color about us */
 .about {
     background-color: #eee;
 }
@@ -108,7 +108,7 @@ footer {
     margin: 15px auto 30px;
 }
 
-/* услуги */
+/* services */
 .services h5 {
     padding: 50px;
     border: 3px solid var(--color1);
@@ -129,14 +129,14 @@ footer {
 }
 
 a {
-    text-decoration: none; /* Убираем подчёркивание */
+    text-decoration: none; /* Removing the underline */
     color:black;
    }
 
    .brd {
-    border: 4px  black; /* Параметры границы */
-    background: #74c0c3; /* Цвет фона */
-    padding: 10px; /* Поля вокруг текста */
+    border: 4px  black; /* Border Options */
+    background: #74c0c3; /* Background color */
+    padding: 10px; /* Margins around text */
     text-align: center ;
    }
 

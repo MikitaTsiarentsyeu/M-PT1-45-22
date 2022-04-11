@@ -6,7 +6,7 @@ class AddPost(forms.Form):
     title = forms.CharField(max_length=200)
     subtitle = forms.CharField(max_length=200, label="Subtitle")
     content = forms.CharField(widget=forms.Textarea())
-    post_type = forms.ChoiceField(choices=Post.POST_TYPES, label="Post type")
+    # post_type = forms.ChoiceField(choices=Post.POST_TYPES, label="Post type")
     image = forms.ImageField()
 
 
@@ -25,14 +25,16 @@ class AddPost(forms.Form):
 class AddPostModelForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'content', 'post_type', 'image')  
-        labels = {'image':'Main image'}
+        fields = ('title', 'content', 'image')  
+        labels = {'title' : 'Тема',
+                'content' : 'Текст сообщения',
+                'image':'Фото'}
         widgets = {'title' : forms.TextInput(attrs={'class' : 'form-control'}),
         'content' : forms.Textarea(attrs={'class' : 'form-control'}),
-        'post_type' : forms.Select(attrs={'class' : 'form-control'}),
+        # 'post_type' : forms.Select(attrs={'class' : 'form-control'}),
         }
 
-# в виджетах было только 'content' : forms.Textarea(),
-        # delete subtitle из field и widjets
+    # in the widgets was only 'content' : forms.Textarea(),
+        # delete subtitle and post_type from field и widjets
 
         # 'image' : forms.TextInput(attrs={'class' : 'form-control'})
