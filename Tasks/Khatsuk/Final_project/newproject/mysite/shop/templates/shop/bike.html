@@ -1,0 +1,19 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+</section>
+<section>
+   <div class="container-xxl">
+       <div class="row">
+
+            <div class="col-sm">
+                <img src="{{bike.image.url}}" alt="{{i.title}}">
+            </div>
+            <div class="col-sm">
+            <h1>Полное описание</h1>
+                {{ form.as_ul }}
+            </div>
+       </div>
+   </div>
+</section>
+{% endblock content %}
