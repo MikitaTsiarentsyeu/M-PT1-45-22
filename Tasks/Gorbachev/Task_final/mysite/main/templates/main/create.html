@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+
+{% block header %}
+
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Главная</a></li>
+    <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">О нас</a></li>
+    <li class="nav-item"><a href="{% url 'create' %}" class="nav-link active" aria-current="page">Добавить запись</a></li>
+
+{% endblock %}
+
+{% block title %}
+Добавление записи
+{% endblock %}
+
+{% block description %}
+<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="fw-normal">Добавление новой записи в блог</h1>
+    <h2 class="fw-normal">Введите необходимую информацию в поля ниже:</h2>
+ </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="bd-example comment-wrapper container-fluid p-3 pb-md-4 mx-auto panel-body p-4 pb-5 align-items-center rounded-3 border shadow-lg">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-form-group inputfield">
+      <label for="{{field.id_for_label}}">{{field.label}}</label>
+        <input
+            type="{{ field.field.widget.input_type }}"
+            class="form-control input-lg"
+            id="{{ field.id_for_label }}"
+            name="{{field.name}}"
+            required>
+    </div>
+    <div><p></p></div>
+{% endfor %}
+    <div class="pricing-header text-center">
+    <button type="submit" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Добавить запись в блог</button>
+    <span>{{ error }}</span> 
+    </div>
+  </form>
+  </div>
+{% endblock %}
+
+{% block nav %}
+<div></div>
+{% endblock %} 
