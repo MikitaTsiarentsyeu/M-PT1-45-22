@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block category %}
+{% for c in cat %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'car:category' c.id %}">{{ c.name }}</a>
+</li>
+{% endfor %}
+{% endblock category %}
+{% block content %}
+{% for i in alone_car %}
+<div class="card text-center">
+    <div class="card-header mb-4">
+        <h5 class="card-title">{{ i.title }}</h5>
+    </div>
+
+    <div class="row col-sm-12">
+
+        <div class="card-body col-sm-6">
+            <p class="card-text">{{ i.text }}</p>
+            <div class="position-absolute bottom-0  ">
+                <a href="#" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-telephone-forward-fill me-3" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                              d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                    {{ i.phone }}</a>
+            </div>
+        </div>
+
+        {% if i.image_main %}
+
+        <div id="carouselExampleControls" class="carousel slide col-sm-6 " data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active  ms-auto">
+                    <img src="{{ i.image_main.url }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item  ms-auto">
+                    <img src="{{ i.image_1.url }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item  ms-auto">
+                    <img src="{{ i.image_2.url }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item  ms-auto">
+                    <img src="{{ i.image_3.url }}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+            </button>
+        </div>
+
+        {% else %}
+        Нет картинки
+        {% endif %}
+
+    </div>
+
+    <div class="card-footer text-muted text-end">
+        {{ i.date }}
+    </div>
+</div>
+{% endfor %}
+
+{% endblock content %}
